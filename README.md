@@ -72,6 +72,7 @@ let fruits = [’Apple’, ‘Banana’, ‘Cherry’];
 console.log(fruits[0]); // 'Apple'
 ```
 
+
 ## 변수
 
 데이터를 저장하고 참조(사용)하는 데이터의 이름
@@ -94,6 +95,7 @@ console.log(a); // TypeError
 
 let은 재할당 가능 const는 재할당 불가능
 
+
 ## 예약어
 
 **특별한 의미**를 가지고 있어, 변수나 함수 이름 등으로 사용할 수 없는 단어
@@ -105,6 +107,7 @@ let this = 'Hello!'; // SyntaxError
 let if = 123; // SyntaxError
 let break = true; // SyntaxError
 ```
+
 
 ## 함수
 
@@ -178,6 +181,7 @@ console.log(heropy.getName()); //HEROPY
 	
 ```
 
+
 ## 조건문
 
 조건의 결과(truthy, falsy)에 따라 다른 코드를 싱행하는 구문
@@ -196,6 +200,7 @@ if(checked) {
 	console.log('Checked');
 }
 ```
+
 
 ## 화살표 함수
 
@@ -216,6 +221,7 @@ const doubleArrow = ({ name: 'Heropy' })
 console.log('double: ', doubleArrow(7))
 ```
 
+
 ## 즉시 실행 함수  (IIFE)
 
 ```jsx
@@ -229,6 +235,7 @@ double(); // 14
 	console.log(a * 2)
 }()) // 즉시 실행 함수
 ```
+
 
 ## 호이스팅
 
@@ -244,6 +251,7 @@ function double() {
 }
 
 ```
+
 
 ## 콜백
 
@@ -329,6 +337,7 @@ const str = '     Hello world     '
 console.log(str.trim()) // Hello world
 ```
 
+
 ## 숫자
 
 ```jsx
@@ -345,6 +354,7 @@ console.log(integer) // 3
 console.log(float) // 3.14
 console.log(typeof integer, typeof float) // number number
 ```
+
 
 ### Math
 
@@ -373,6 +383,7 @@ Math.round() 함수는 입력값을 반올림한 수와 가장 가까운 정수 
 console.log('random :', Math.random()) // 0.0681598325982
 Math.random() 함수는 0 이상 1 미만의 구간에서 근사적으로 균일한 부동소숫점 의사난수를 반환
 ```
+
 
 ## 배열
 
@@ -546,6 +557,7 @@ numbers.splice(2, 1)
 console.log(numbers) // [1, 2, 4]
 ```
 
+
 ## 객체
 
 **`Object.assign()`**
@@ -595,6 +607,7 @@ const values = keys.map(key => user[key])
 console.log(values) // ['Heropy', 85, 'thesecon@gmail.com']
 ```
 
+
 ## 구조 분해 할당 ( 비구조화 할당 )
 
 **구조 분해 할당** 구문은 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 JavaScript 표현식입니다.
@@ -610,6 +623,7 @@ const {name, age, email} = user
 
 console.log(name) // Heropy
 ```
+
 
 ## 전개 연산자
 
@@ -640,6 +654,7 @@ function toObject(a, b, ...c(rest parameter)) {
 const toObject = (a, b, ...c) => ({ a, b, c })
 console.log(toObject(...fruits)) // {a: 'Apple', b:'Banana', c:['Cherry', 'Orange'}
 ```
+
 
 ## 데이터 불변성(Immutability)
 
@@ -672,6 +687,7 @@ a. k = 9
 console.log(a, b, c, a === c) // {k:9} {k:9} {k:9} true
 ```
 
+
 ### 얕은 복사, 깊은 복사
 
 ```jsx
@@ -700,6 +716,7 @@ const copyUser = _.cloneDeep(user)
 
 참조 데이터 안에 참조 데이터가 또 있으면 깊은 복사를 하는게 좋음
 ```
+
 
 ## 가져오기, 내보내기
 
@@ -794,7 +811,7 @@ console.log(users) // { userId: '2', name: 'Neo' },
 
 # JSON
 
-**JSON(** JavaScript Object Notation )은 [속성-값 쌍](https://ko.wikipedia.org/w/index.php?title=%EC%86%8D%EC%84%B1-%EA%B0%92_%EC%8C%8D&action=edit&redlink=1)(attribute–value pairs), 배열 자료형(array data types) 또는 기타 모든 시리얼화 가능한 값(serializable value) 또는 "키-값 쌍"으로 이루어진 데이터 오브젝트를 전달하기 위해 인간이 읽을 수 있는 텍스트를 사용하는 개방형 표준 포맷이다.
+**JSON(** JavaScript Object Notation )은 [속성-값 쌍], 배열 자료형(array data types) 또는 기타 모든 시리얼화 가능한 값(serializable value) 또는 "키-값 쌍"으로 이루어진 데이터 오브젝트를 전달하기 위해 인간이 읽을 수 있는 텍스트를 사용하는 개방형 표준 포맷이다.
 
 ```jsx
 import myData from './myData.json'
@@ -856,6 +873,7 @@ localStorage.setItem('user', JSON.stringify(obj))
 ```
 
 # OMDb API
+
 
 ## Query String
 
