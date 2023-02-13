@@ -729,4 +729,153 @@ export const user = {
 
 ```
 
-[JS 데이터](https://www.notion.so/JS-fb354032bfaf41ceb6fd249627b50773)
+# Lodash
+
+****`_.uniq(array)`****
+
+각 요소의 첫 번째 항목만 유지되는 중복 없는 버전의 배열을 만듭니다.
+
+```jsx
+_.uniq([2, 1, 2]);
+// => [2, 1]
+```
+
+```jsx
+import _ from 'lodash'
+
+const usersA = [
+	{ userId: '1', name: 'HEROPY' },
+	{ userId: '2', name: 'Neo' }
+]
+
+const usersB = [
+	{ userId: '1', name: 'HEROPY' },
+	{ userId: '3', name: 'Amy' }
+]
+
+const usersC = usersA.concat(usersB)
+console.log('concat', usersC) // 0:	{ userId: '1', name: 'HEROPY' },
+																 1: { userId: '2', name: 'Neo' },
+																 2: { userId: '1', name: 'HEROPY' },
+																 3: { userId: '3', name: 'Amy' }
+
+console.log('uniqBy', _.uniqBy(usersC, 'userId')) // 0:	{ userId: '1', name: 'HEROPY' },
+																										 1: { userId: '2', name: 'Neo' },
+																									 	 2: { userId: '3', name: 'Amy' }
+
+const usersD = _.unionBy(usersA, usersB, 'userId')
+console.log('unionBy', usersD) // 0:	{ userId: '1', name: 'HEROPY' },
+																  1: { userId: '2', name: 'Neo' },
+																  2: { userId: '3', name: 'Amy' }
+```
+
+```jsx
+import _ from 'lodash'
+
+const users = [
+	{ userId: '1', name: 'HEROPY' },
+	{ userId: '2', name: 'Neo' },
+	{ userId: '3', name: 'Amy' },
+	{ userId: '4', name: 'Evan' },
+	{ userId: '5', name: 'Lewis' }
+]
+
+const foundUser = _.find(users, { name: 'Amy' })
+const foundUserIndex = _.findIndex(users, { name: 'Amy' })
+console.log(foundUser) // {userId: "3", name:"Amy"}
+console.log(foundUserIndex) // 2
+
+_.remove(users, { name: 'HEROPY' })
+console.log(users) // { userId: '2', name: 'Neo' },
+											{ userId: '3', name: 'Amy' },
+											{ userId: '4', name: 'Evan' },
+											{ userId: '5', name: 'Lewis' }
+```
+
+# JSON
+
+**JSON(** JavaScript Object Notation )은 [속성-값 쌍](https://ko.wikipedia.org/w/index.php?title=%EC%86%8D%EC%84%B1-%EA%B0%92_%EC%8C%8D&action=edit&redlink=1)(attribute–value pairs), 배열 자료형(array data types) 또는 기타 모든 시리얼화 가능한 값(serializable value) 또는 "키-값 쌍"으로 이루어진 데이터 오브젝트를 전달하기 위해 인간이 읽을 수 있는 텍스트를 사용하는 개방형 표준 포맷이다.
+
+```jsx
+import myData from './myData.json'
+
+const user = {
+	name: 'HEROPY',
+	age: 85,
+	emalis: [
+		'poi8946@naver.com',
+		'hetame@naver.com'
+	]
+}
+console.log('user', user)
+
+const str = JOSN.stringify(user)
+console.log('str', str)
+console.log(typeof str)
+
+const obj = JSON.parse(str)
+console.log('obj', obj)
+```
+
+```jsx
+{
+  "string": "HEROPY",
+  "number": 123,
+  "boolean": true,
+  "null": null,
+  "object": {},
+  "array": []
+}
+```
+
+JSON 파일은 하나의 문자데이터
+
+# Local Storage
+
+`localStorage`는 `[sessionStorage](https://developer.mozilla.org/ko/docs/Web/API/Window/sessionStorage)`와 비슷하지만, 
+
+`localStorage`의 데이터는 만료되지 않고 `sessionStorage`의 데이터는 
+
+페이지 세션이 끝날 때, 즉 페이지를 닫을 때 사라지는 점이 다릅니다.
+
+```jsx
+const user = {
+	name: 'HEROPY',
+	age: 85,
+	emalis: [
+		'poi8946@naver.com',
+		'hetame@naver.com'
+	]
+}
+
+const str = localStorage.getItem('user')
+const obj = JSON.parse(str)
+obj.age = 22
+console.log(obj)
+localStorage.setItem('user', JSON.stringify(obj))
+```
+
+# OMDb API
+
+## Query String
+
+어떤 문자를 가지고 검색을 한다
+
+**주소?속성=값&속성=값&속성=값**
+
+```jsx
+import axios from "axios";
+
+function fetchMovies() {
+	axios.get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
+	.then(res => {
+		console.log(res)
+		const h1El = document.querySelector('h1')
+		const imgEl = document.querySelector('img')
+		h1El.textContent = res.data.Search[0].Title
+		imgEl.src = res.data.Search[0].poster
+	})
+}
+
+fetchMovies()
+```
