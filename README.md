@@ -398,7 +398,7 @@ console.log(fruits[2]) // Cherry
 **`find()`**
 메서드는 주어진 판별 함수를 만족하는 **첫 번째 요소**의 **값**을 반환합니다. 
 
-그런 요소가 없다면 `[undefined](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/undefined)`를 반환합니다.
+그런 요소가 없다면 `[undefined]`를 반환합니다.
 
 ```jsx
 const array1 = [5, 12, 8, 130, 44];
@@ -479,7 +479,7 @@ console.log(b) [1, 2]
 **`find()`**
 메서드는 주어진 판별 함수를 만족하는 **첫 번째 요소**의 **값**을 반환합니다. 
 
-그런 요소가 없다면 `[undefined](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/undefined)`를 반환합니다.
+그런 요소가 없다면 `[undefined]'를 반환합니다.
 
 **`findIndex()`**
 메서드는 **주어진 판별 함수를 만족하는** 배열의 첫 번째 요소에 대한 **인덱스**를 반환합니다. 
@@ -561,7 +561,7 @@ console.log(numbers) // [1, 2, 4]
 ## 객체
 
 **`Object.assign()`**
-메서드는 출처 객체들의 모든 [열거 가능](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable)한 [자체 속성](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)을 **복사**해 대상 객체에 붙여넣습니다. 
+메서드는 출처 객체들의 모든 [열거 가능]을 **복사**해 대상 객체에 붙여넣습니다. 
 
 그 후 대상 객체를 반환합니다.
 
