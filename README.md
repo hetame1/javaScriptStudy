@@ -637,7 +637,7 @@ function toObject(a, b, c) {
 	return {
 		a: a,
 		b: b,
-        c: c
+        c: c 
 	}
 }
 console.log(toObject(...fruits)) // {a: 'Apple', b:'Banana', c:'Cherry'}
