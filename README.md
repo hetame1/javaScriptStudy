@@ -278,8 +278,7 @@ timeout(() => {
 **`indexOf()`**
 
 String.prototype.indexOf()
-메서드는 호출한 `[String](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String)`
-객체에서 주어진 값과 일치하는 첫 번째 인덱스를 반환합니다. 일치하는 값이 없으면 -1을 반환
+메서드는 호출한 `[String]` 객체에서 주어진 값과 일치하는 첫 번째 인덱스를 반환합니다. 일치하는 값이 없으면 -1을 반환
 
 ```jsx
 const str = 'Hello world!'.indexOf('world')
@@ -326,7 +325,7 @@ console.log(str.replace(' world!', '')) // Hello
 ```jsx
 const str = 'poi8946@naver.com'
 console.log(str.match(/.+(?=@)/)[0]) // poi8946 
-											정규표현식
+					  정규표현식
 ```
 
 **`trim()`**
@@ -440,8 +439,8 @@ const fruits = ['Apple', 'Banana', 'Cherry']
 
 fruits.forEach(function (element, index, array) {
 	console.log(elements, index, array) // Apple 0 ['Apple', 'Banana', 'Cherry'], 
-																			// Banana 1 ['Apple', 'Banana', 'Cherry'],
-																			// Cherry 2 ['Apple', 'Banana', 'Cherry']
+										// Banana 1 ['Apple', 'Banana', 'Cherry'],
+										// Cherry 2 ['Apple', 'Banana', 'Cherry']
 })
 ```
 
@@ -616,7 +615,7 @@ console.log(values) // ['Heropy', 85, 'thesecon@gmail.com']
 const user = {
   name: 'Heropy',
   age: 85,
-	email: 'thesecon@gmail.com'
+  email: 'thesecon@gmail.com'
 }
 
 const {name, age, email} = user
@@ -638,7 +637,7 @@ function toObject(a, b, c) {
 	return {
 		a: a,
 		b: b,
-    c: c
+        c: c
 	}
 }
 console.log(toObject(...fruits)) // {a: 'Apple', b:'Banana', c:'Cherry'}
@@ -648,7 +647,7 @@ function toObject(a, b, ...c(rest parameter)) {
 	return {
 		a: a,
 		b: b,
-    c: c
+        c: c
 	}
 } >> 축약
 const toObject = (a, b, ...c) => ({ a, b, c })
@@ -699,7 +698,7 @@ const user = {
 }
 
 const copyUser = Onject.assign({}, user) // 얕은 복사
-									{...user}							
+							  {...user}							
 console.log(copyUser === user) // true
 
 user.age = 22
@@ -772,18 +771,18 @@ const usersB = [
 
 const usersC = usersA.concat(usersB)
 console.log('concat', usersC) // 0:	{ userId: '1', name: 'HEROPY' },
-																 1: { userId: '2', name: 'Neo' },
-																 2: { userId: '1', name: 'HEROPY' },
-																 3: { userId: '3', name: 'Amy' }
+							  // 1: { userId: '2', name: 'Neo' },
+							  // 2: { userId: '1', name: 'HEROPY' },
+							  // 3: { userId: '3', name: 'Amy' }
 
 console.log('uniqBy', _.uniqBy(usersC, 'userId')) // 0:	{ userId: '1', name: 'HEROPY' },
-																										 1: { userId: '2', name: 'Neo' },
-																									 	 2: { userId: '3', name: 'Amy' }
+												  // 1: { userId: '2', name: 'Neo' },
+												  // 2: { userId: '3', name: 'Amy' }
 
 const usersD = _.unionBy(usersA, usersB, 'userId')
-console.log('unionBy', usersD) // 0:	{ userId: '1', name: 'HEROPY' },
-																  1: { userId: '2', name: 'Neo' },
-																  2: { userId: '3', name: 'Amy' }
+console.log('unionBy', usersD) // 0: { userId: '1', name: 'HEROPY' },
+							   // 1: { userId: '2', name: 'Neo' },
+							   // 2: { userId: '3', name: 'Amy' }
 ```
 
 ```jsx
@@ -804,9 +803,9 @@ console.log(foundUserIndex) // 2
 
 _.remove(users, { name: 'HEROPY' })
 console.log(users) // { userId: '2', name: 'Neo' },
-											{ userId: '3', name: 'Amy' },
-											{ userId: '4', name: 'Evan' },
-											{ userId: '5', name: 'Lewis' }
+				   // { userId: '3', name: 'Amy' },
+				   // { userId: '4', name: 'Evan' },
+				   // { userId: '5', name: 'Lewis' }
 ```
 
 # JSON
@@ -849,7 +848,7 @@ JSON 파일은 하나의 문자데이터
 
 # Local Storage
 
-`localStorage`는 `[sessionStorage](https://developer.mozilla.org/ko/docs/Web/API/Window/sessionStorage)`와 비슷하지만, 
+`localStorage`는 `[sessionStorage]`와 비슷하지만, 
 
 `localStorage`의 데이터는 만료되지 않고 `sessionStorage`의 데이터는 
 
