@@ -593,7 +593,7 @@ console.log(a === b) // false
 const user = {
   name: 'Heropy',
   age: 85,
-	email: 'thesecon@gmail.com'
+  email: 'thesecon@gmail.com'
 }
 
 const keys = Object.keys(user)
