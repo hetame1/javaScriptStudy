@@ -96,7 +96,7 @@ startGameBtn.addEventListener('click', () => {
 
 
 // rest operator
-const sumUp = (...numbers) => {
+const combine = (resultHandler, operation, ...numbers) => {
   // 함수 안에 함수
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;
@@ -104,20 +104,28 @@ const sumUp = (...numbers) => {
 
   let sum = 0;
   for(const num of numbers) {
-    sum += num;
-  }
-  return sum;
+    if (operation === 'ADD') {
+      sum += validateNumber(num);
+    } else {
+      sum -= validateNumber(num);
+      }
+  } 
+  resultHandler(sum, 'The result after adding all number is');
 };
 
 
-const subtractUp = function() {
-  let sum = 0;
-  for(const num of arguments /*Rest 나오기 전에 사용 function을 사용해야함함*/) {
-    sum += num;
-  }
-  return sum;
+// const subtractUp = function() {
+//   let sum = 0;
+//   for(const num of arguments /*Rest 나오기 전에 사용 function을 사용해야함함*/) {
+//     sum += num;
+//   }
+//   return sum;
+// };
+
+const showResult = (result, messageText) => {
+  alert(messageText + ' ' + result)
 }
 
-console.log(sumUp(1, 5, 10, -3, 6, 10));
-console.log(sumUp(1, 5, 10, -3, 6, 10));
+console.log(sumUp(showResult, 'ADD', 1, 5, 10, -3, 6, 10));
+console.log(sumUp(showResult, 'ADD',  1, 5, 10, -3, 6, 10));
 console.log(subtractUp(1, 2, 6, 10));
