@@ -1,3 +1,5 @@
+
+
 const startGameBtn = document.getElementById('start-game-btn');
 
 const ROCK = 'ROCK';
@@ -91,3 +93,31 @@ startGameBtn.addEventListener('click', () => {
   alert(message);
   gameIsRunning = false;
 });
+
+
+// rest operator
+const sumUp = (...numbers) => {
+  // 함수 안에 함수
+  const validateNumber = (number) => {
+    return isNaN(number) ? 0 : number;
+  }
+
+  let sum = 0;
+  for(const num of numbers) {
+    sum += num;
+  }
+  return sum;
+};
+
+
+const subtractUp = function() {
+  let sum = 0;
+  for(const num of arguments /*Rest 나오기 전에 사용 function을 사용해야함함*/) {
+    sum += num;
+  }
+  return sum;
+}
+
+console.log(sumUp(1, 5, 10, -3, 6, 10));
+console.log(sumUp(1, 5, 10, -3, 6, 10));
+console.log(subtractUp(1, 2, 6, 10));
