@@ -126,6 +126,6 @@ const showResult = (result, messageText) => {
   alert(messageText + ' ' + result)
 }
 
-console.log(sumUp(showResult, 'ADD', 1, 5, 10, -3, 6, 10));
-console.log(sumUp(showResult, 'ADD',  1, 5, 10, -3, 6, 10));
-console.log(subtractUp(1, 2, 6, 10));
+combine(showResult, 'ADD', 1, 5, 10, -3, 6, 10);
+combine(showResult, 'ADD',  1, 5, 10, -3, 6, 10);
+combine(showResult, 'SUBTRACT', 1, 10, 15, 20);
