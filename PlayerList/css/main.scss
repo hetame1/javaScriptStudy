@@ -2,11 +2,28 @@ body {
   background-color:aliceblue;
 }
 
+.header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  h2 {
+    margin: 20px;
+  }
+}
+
+button {
+  background-color: white;
+  border: 0px;
+  cursor: pointer;
+}
+
 .main {
   min-height: 90vh;
   display: grid;
   place-items: center;
   .img {
+    margin: 50px;
     img {
       width: 150px;
       height: 150px;
@@ -15,9 +32,28 @@ body {
   }
   .block {
     border-radius: 20px;
-    width: 500px;
+    width: 1000px;
     background-color: white;
     text-align: center;
     box-shadow: 0px 5px 15px 0px grey;
+    .material-icons {
+      color: aqua;
+      font-size: 30px;
+    }
+    #name {
+      font-family: 'Jua', sans-serif;
+      font-size: 50px;
+      margin: 20px 0px;
+    }
+    #job {
+      font-family: 'Dongle', sans-serif;
+      font-size: 50px;
+      margin: 20px 0px;
+    }
+    #info {
+      font-family: 'Nanum Pen Script', cursive;
+      font-size: 35px;
+      margin: 20px 0px;
+    }
   }
 }

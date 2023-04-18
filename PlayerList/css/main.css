@@ -2,10 +2,29 @@ body {
   background-color: aliceblue;
 }
 
+.header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+.header h2 {
+  margin: 20px;
+}
+
+button {
+  background-color: white;
+  border: 0px;
+  cursor: pointer;
+}
+
 .main {
   min-height: 90vh;
   display: grid;
   place-items: center;
+}
+.main .img {
+  margin: 50px;
 }
 .main .img img {
   width: 150px;
@@ -14,10 +33,29 @@ body {
 }
 .main .block {
   border-radius: 20px;
-  width: 500px;
+  width: 1000px;
   background-color: white;
   text-align: center;
   box-shadow: 0px 5px 15px 0px grey;
+}
+.main .block .material-icons {
+  color: aqua;
+  font-size: 30px;
+}
+.main .block #name {
+  font-family: "Jua", sans-serif;
+  font-size: 50px;
+  margin: 20px 0px;
+}
+.main .block #job {
+  font-family: "Dongle", sans-serif;
+  font-size: 50px;
+  margin: 20px 0px;
+}
+.main .block #info {
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 35px;
+  margin: 20px 0px;
 }
 
 /*# sourceMappingURL=main.css.map */
