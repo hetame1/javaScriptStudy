@@ -39,6 +39,7 @@ const $info = document.getElementById("info");
 
 const prev = document.querySelector(".prev-button");
 const next = document.querySelector(".next-button");
+const rdm = document.querySelector(".random-button");
 
 let currentId = 0;
 
@@ -78,4 +79,7 @@ prev.addEventListener('click', () => {
   changePerson()
   console.log(currentId)
 })
-
+rdm.addEventListener('click', () => {
+  currentId = Math.floor(Math.random() * data.length);
+  changePerson()
+})
