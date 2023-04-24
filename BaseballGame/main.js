@@ -97,4 +97,5 @@ $form.addEventListener('submit',  /* enter 키 눌러 요청 처리 가능 */ (e
   })
 
   $logs.append(`${value}: ${nOfStrike} 스트라이크 ${nOfBall} 볼`, document.createElement('br'));
+
 })
