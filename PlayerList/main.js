@@ -77,7 +77,6 @@ prev.addEventListener('click', () => {
   }
   currentId--;
   changePerson()
-  console.log(currentId)
 })
 rdm.addEventListener('click', () => {
   currentId = Math.floor(Math.random() * data.length);
