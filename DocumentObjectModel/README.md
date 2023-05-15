@@ -1,56 +1,73 @@
-### Nodes
-- DOM을 구성하는 객체이며, DOM은 모두 노드로 이루어집니다
+# DOM
 
-### Elements
-- 태그에서 생성된 노드이며 내부에는 텍스트가 없음
+The Document Object Model
 
----
+웹페이지에서는 기본 html 코드를 웹페이지에서 다운로드해서
 
-### querySelector(), getElementById()
-- 한 번에 하나의 요소를 선택
-- 단일 요소에 액세스
-- querySelector는 css 파일에서 사용할 수 있음
-- getElementById는 HTML 요소에 할당되었을 ID를 가지고 요소를 선택
+이걸 분석하고 렌더링함
 
-### querySelectorAll(), getElementsByTagName(),...
+자바스크립트는 호스트된 언어
+
+브라우저가 자바스크립트를 실행할 환경을 제공해줌
+
+브라우저가 기능을 노출해서 자바스크립트가 렌더링 된 HTML 코드와 상호작용하게 되며
+
+이걸 DOM이라고 함
+
+DOM은 결국 로드 및 렌더링 된 HTML 코드
+
+로드된 html 코드에 엑세스가 가능해짐
+
+### 문서와 윈도우 객체
+
+문서는 부라우저가 노출시키는 루트 DOM
+
+렌더링 된 모드 html에 접근하기 위한 최고점의 엔트리 포인트
+
+창은 자바스크립트의 브라우저에서 사용 가능한 최상위의 전역 객체
+
+활성화된 브라우저 창이나 탭을 보여줌
+
+### DOM과 생성 방식 이해하기
+
+console.dir() 상세한 내용 표시
+
+$0 은 항상 “Elements”탭에서 마지막으로 선택한 요소에 대한 액세스를 제공
+
+( 크롬 개발 도구 기능 )
+
+### DOM 쿼리하기
+
+가장 중요한 **querySelector** 와 **getElementByID**가 있음
+- 한 번에 하나의 요소를 선택함 (단일 요소에 엑세스)
+- querySelector는 CSS 선택자를 사용함 ( 복잡한 쿼리가 있는 요소를 선택할 때 큰 탄력성과 성능 제공 ) / 맨 처음 일치하는 요소로 액세스
+- getElementByID는 html요소에 할당되었을 ID를 가지고 요소를 선택 ( 단일 요소에 엑세스 )
+- 따라서 발결한 DOM 요소에 대한 직접적인 참조를 제공
+
+또 다른 메서드로는 **querySelectorAll** 과 **getElementsByTagName**이 있음
 - 다중 요소를 선택
-- 유사 배열 객체인 요소의 집합을 반환 : like NodeList
-- 쿼리 선택자로 css 선택자를 사용
+- querySelectorAll은 CSS 선택자를 사용함 ( 가장 유연한 메서드 ) // 정적 노드리스트 반환
+- getElementsByTagName은 html요소에 할당된 태그 이름을 사용함 // 동적 노드리스트 반환
+- 유사 배열 객체인 요소의 집합을 반환 ( 일반적으로 NodeList 반환 )
 
----
+Nodes & Elements
 
-`getElementById`는 ID 속성을 이용하여 요소를 선택 
-이 메소드는 문서 전체에서 ID가 일치하는 첫 번째 요소를 반환
+- 노드는 DOM을 구성하는 객체이며 DOM은 모두 노드로 이루어짐
+- 노드는 트리 구조로 구성되어 있음
 
-`querySelector`는 CSS 선택자를 사용하여 요소를 선택
- 메소드는 문서에서 일치하는 첫 번째 요소를 반환
+- 렌더링 된 HTML의 태그에서 생성된 노드이며 내부에는 텍스트가 없음
+- 특별한 속성과 메서드가있음 ( 요소와 상호작용하거나 스타일을 변경할 때 )
 
-`querySelector`는 클래스 이름, 태그 이름, 속성 등 다양한 방법으로 요소를 선택할 수 있다.
-따라서, `getElementById`보다는 더 유연한 선택 기능을 제공
-
-`getElementById`는 ID를 사용하여 요소를 선택하는 데 특화되어 있으며, `querySelector`는 CSS 선택자를 사용하여 요소를 선택할 수 있다 
-둘 다 JavaScript에서 HTML 요소를 선택하는 데 사용할 수 있다
-
----
-
-```js
-const h1 = document.querySelector('h1');
-
-h1.textContent // h1 에 적혀있는 html 내용
-h1.className // class 이름
-h1.style.// 속성 입력해서 사용가능
-console.dir(h1); // h1에 대한 정보를 볼 수 있음
+### DOM에서 요소 선택하기
+```jsx
+<h1 id="main-title">Hello</h1>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
 ```
+document.getElementById('main-title') // id로 요소 선택
+document.querySelector('#main-title') // 태그 이름으로 요소 선택
 
-### 항상 속성이름이 프로퍼티 이름과 같은 것은 아님
-
-속성은 HTML 요소의 특성을 나타내며, `getAttribute()` 메서드를 사용하여 접근할 수 있다
-예를 들어, `<img>` 요소의 `src` 속성은 이미지 파일의 URL을 나타냄
-따라서, `getAttribute('src')`를 사용하여 이미지 파일의 URL을 가져올 수 있다
-
-프로퍼티는 자바스크립트 객체의 특성을 나타내며, 객체의 속성 값으로 설정
-예를 들어, `document.body`는 `document` 객체의 `body` 프로퍼티를 나타내며, 이 프로퍼티는 문서의 `<body>` 요소를 나타냄
-따라서, `document.body`는 문서의 `<body>` 요소에 대한 자바스크립트 객체를 반환
-
----
-
+변수에 저장해 사용할 수 있음
