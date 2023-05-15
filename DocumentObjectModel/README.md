@@ -50,7 +50,7 @@ $0 은 항상 “Elements”탭에서 마지막으로 선택한 요소에 대한
 - getElementsByTagName은 html요소에 할당된 태그 이름을 사용함 // 동적 노드리스트 반환
 - 유사 배열 객체인 요소의 집합을 반환 ( 일반적으로 NodeList 반환 )
 
-Nodes & Elements
+**Nodes & Elements**
 
 - 노드는 DOM을 구성하는 객체이며 DOM은 모두 노드로 이루어짐
 - 노드는 트리 구조로 구성되어 있음
@@ -71,3 +71,42 @@ document.getElementById('main-title') // id로 요소 선택
 document.querySelector('#main-title') // 태그 이름으로 요소 선택
 
 변수에 저장해 사용할 수 있음
+
+### DOM 프로퍼티 탐구 및 변경
+```jsx
+<p id="welcome-text" class="text-default">Welcome!</p>
+const p = document.getElementById('welcome-text')
+
+p.textContent : "Welcome!" // 텍스트 콘텐츠에 엑세스
+p.id : "welcome-text" // id에 엑세스
+p.className : "text-default" // 클래스 이름에 엑세스
+
+p.className = 'new-class' // 클래스 이름 변경
+p.style.color = 'red' // 스타일 변경
+// 주의할점 : 스타일은 camelCase로 작성해야함 p.style.background-color (x) / p.style.backgroundColor (o)
+```
+어떤 프로퍼티를 사용 할 수 있는지는 console.dir(p)를 통해 확인 가능
+
+자바스크립트에서 작업한 내용은 새로고침을 하면 전부 사라짐
+메모리에서 기존의 애플리케이션을 삭제하고 새로운 애플리케이션을 만들기 때문
+
+### 속성 vs 프로퍼티
+
+속성은 프로퍼티에 매핑되어 있고 실시간 동기화가 설정되어있기 때문에 혼동하기 쉬움
+
+<input id="input-1" class="input-default" value="Enter text...">
+
+id, class, value를 HTML 코드에서 작성하기 때문에 속성이라고 부른다
+즉, HTML 태그에 추가하는 것은 해당 태그의 속성
+
+HTML코드를 작성할 때 속성은 개념은 생성된 DOM 개체에 특정한 기본 구성을 제공하는 것
+이것이 속성이 하는 일이고 프로퍼티로 변환되는 것
+
+프로퍼티는 HTML 코드를 기반으로 생성된 객체에 저장된 값
+
+모든 속성이 프로퍼티에 일대일 매핑되는 것은 아니지만 input id는 일대일로 매핑돼서 id 속성과
+id 프로퍼티가 있습니다
+
+속성 값을 바꾸면 프로퍼티 값이 업데이트되고 반대도 됨 즉, 실시간 동기화가 된다
+
+항상 속성 이름이 프로퍼티 이름과 같은 것은 아니다
