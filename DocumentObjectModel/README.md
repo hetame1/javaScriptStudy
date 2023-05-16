@@ -109,4 +109,93 @@ id 프로퍼티가 있습니다
 
 속성 값을 바꾸면 프로퍼티 값이 업데이트되고 반대도 됨 즉, 실시간 동기화가 된다
 
-항상 속성 이름이 프로퍼티 이름과 같은 것은 아니다
+항상 속성 이름이 프로퍼티 이름과 같은 것은 아님
+
+setAttribute('이름', '값') 메서드를 사용하면 속성을 추가하거나 변경할 수 있음
+getAttribute('이름') 메서드를 사용하면 속성 값을 가져올 수 있음
+
+### 다수의 요소 선택하기
+
+```jsx
+const allLis = document.querySelectorAll('li') // 모든 li 요소 선택
+const allLis = document.getElementsByTagName('li') // 모든 li 요소 선택
+
+allLis[0] // 첫 번째 li 요소 선택
+for (const li of allLis) {
+  console.dir(li) // 모든 li 요소에 접근
+}
+```
+
+### DOM의 기초
+
+**Traversing the DOM**
+
+- 이미 선택한 요소를 이용해서 이 요소를 기반으로 자식 혹은 형제 요소등으로 옮겨갈 수 있는 것
+- 자식(Child), 후손(Descendant), 부모(Parent), 조상(Ancestor)
+
+```jsx
+<div>
+  <p>
+    A <em>Test!</em>
+  </p>
+</div>
+```
+p는 div의 자식 요소이고 em은 p의 자식 요소이다
+p는 div의 자식이자 후손이며 em 태그는 div의 자식은 아니지만 후손이다
+div는 p의 부모요소지만 em의 부모요소는 아니다
+div는 p의 조상이며 em의 조상이기도 하다
+
+- 부모 요소 혹은 부모 노드는 parentNode or parentElement
+- parentNode는 모든 노드에 사용 가능하고 parentElement는 요소(즉, HTML요소 객체만 선택)에만 사용 가능
+
+- 자식 요소 혹은 자식 노드는 childNodes or children
+- childNodes는 모든 노드에 사용 가능하고 children은 요소(즉, HTML요소 객체만 선택)에만 사용 가능 
+
+### 자식 노드&요소 
+
+```jsx
+<header>
+  <h1 id="main-title">Hello</h1>
+</header>
+
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+```
+
+```jsx
+const ul = document.querySelector('ul')
+ul.children // ul의 자식 요소들을 반환 (유사 배열 HTMLCollection 반환)
+ul.children[1] // 두 번째 자식 요소 반환
+
+ul.childNodes // ul의 자식 노드들을 반환 (유사 배열 NodeList 반환) 텍스트 노드를 포함
+
+ul.firstElementChild // 첫 번째 자식 요소 반환
+ul.lastElementChild // 마지막 자식 요소 반환
+
+ul.firstChild // 첫 번째 자식 노드 반환
+ul.lastChild // 마지막 자식 노드 반환
+```
+
+### 부모 노드&요소
+
+```jsx
+const li = document.querySelector('li')
+li.parentElement // li의 부모 요소 반환
+li.parentNode // li의 부모 노드 반환
+
+// 둘은 왠만하면 거의 같음 왜냐하면 요소 노드만이 자식 노드를 가질 수 있기 때문
+// 예외 경우가 딱 하나 있음
+
+document.documentElement.parentElement // null 반환
+document.documentElement.parentNode // #document 반환
+
+li.closest('body') // li의 가장 가까운 조상 요소 반환
+li.closest('header') // null 반환 (조상이 아니기 때문)
+```
+
+
+
+
